@@ -35,7 +35,6 @@ steam-installer \
 lxappearance \
 arandr \
 dunst \
-ligthdm \
 i3-wm \
 i3blocks \
 alacritty \
@@ -57,16 +56,13 @@ flatpak install -y \
 com.visualstudio.code \
 com.jetbrains.IntelliJ-IDEA-Community \
 com.stremio.Stremio \
-brave \
+com.brave.Browser \
 com.discordapp.Discord \
-pcsx2 \
-duckstation \
-beekeeper \
+io.beekeeperstudio.Studio \
 com.usebruno.Bruno \
-flatpak install flathub org.kryogenix.Pick \
+org.kryogenix.Pick \
 
 echo_done
-
 
 #############################
 ### Installing Noto fonts ###
