@@ -132,8 +132,7 @@ echo_done
 
 echo_doing 'Copying monitor file'
 
-mkdir -p ~/.screenlayout
-cp monitor.sh ~/.screenlayout
+cp -r .screenlayout ~/
 
 echo_done
 
