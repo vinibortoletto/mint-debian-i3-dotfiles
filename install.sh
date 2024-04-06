@@ -1,13 +1,29 @@
 #!/bin/bash
 source ./functions.sh
 
-########################
-### Removing Firefox ###
-########################
+#############################
+### Removing default apps ###
+############################
 
 echo_doing 'Removing Firefox'
 
-sudo nala remove firefox -y
+sudo nala remove -y \
+firefox \
+libreoffice-core \
+xed \
+drawing \
+simple-scan \
+pix \
+hypnotix \
+hexchat \
+thunderbird \
+gnome-screenshot \
+rhythmbox \
+sticky \
+system-config-printer \
+transmission-gtk
+
+
 rm -rf /home/vini/.cache/mozilla/firefox
 rm -rf /home/vini/.mozilla/firefox
 
@@ -64,7 +80,6 @@ org.kryogenix.Pick \
 
 echo_done
 
-
 #############################
 ### Installing Noto fonts ###
 #############################
@@ -117,6 +132,7 @@ echo_done
 
 echo_doing 'Copying monitor file'
 
+mkdir -p ~/.screenlayout
 cp monitor.sh ~/.screenlayout
 
 echo_done
