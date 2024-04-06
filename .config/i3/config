@@ -239,7 +239,7 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id redshift -P -O 3000
 
 # set wallpaper
-exec --no-startup-id sleep 3 && feh --bg-fill --no-xinerama ~/Pictures/backgrounds/pexels-lucas-pezeta-2270180.jpg
+exec --no-startup-id Rfeh --bg-fill --no-xinerama ~/Pictures/backgrounds/pexels-lucas-pezeta-2270180.jpg
 
 ######################
 ### FLOATING RULES ###
