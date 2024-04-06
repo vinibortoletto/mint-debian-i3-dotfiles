@@ -64,6 +64,7 @@ org.kryogenix.Pick \
 
 echo_done
 
+
 #############################
 ### Installing Noto fonts ###
 #############################
@@ -135,5 +136,17 @@ sudo mkdir -p -m 755 /etc/apt/keyrings && wget -qO- https://cli.github.com/packa
 && sudo apt update \
 && sudo apt install gh -y \
 && gh auth login
+
+echo_done
+
+######################
+### Flatpak themes ###
+######################
+
+echo_doing 'Settings dark theme for flatpak apps'
+
+mkdir -p ~/.themes
+cp /usr/share/themes/Mint-Y-Dark-Teal ~/.themes
+sudo flatpak override --env=GTK_THEME=Mint-Y-Dark-Teal
 
 echo_done
