@@ -77,19 +77,19 @@ colors {
 #################
 
 # apps
-bindsym $mod+w exec --no-startup-id /usr/bin/brave
-bindsym $mod+c exec --no-startup-id /usr/bin/code
-bindsym $mod+i exec --no-startup-id /usr/bin/idea
+bindsym $mod+w exec --no-startup-id flatpak run com.brave.Browser
+bindsym $mod+c exec --no-startup-id flatpak run com.visualstudio.code
+bindsym $mod+i exec --no-startup-id flatpak run com.jetbrains.IntelliJ-IDEA-Community
 bindsym $mod+shift+t exec --no-startup-id /usr/bin/qbittorrent
 bindsym Print exec --no-startup-id scrot ~/Pictures/%d-%m-%Y-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
 # folders
-bindsym $mod+Shift+d exec --no-startup-id thunar Downloads
-bindsym $mod+Ctrl+Shift+d exec --no-startup-id thunar Documents
-bindsym $mod+Shift+c exec --no-startup-id thunar Code
-bindsym $mod+Shift+v exec --no-startup-id thunar Videos
-bindsym $mod+Shift+p exec --no-startup-id thunar Pictures
-bindsym $mod+Shift+m exec --no-startup-id thunar Music
+bindsym $mod+Shift+d exec --no-startup-id nemo Downloads
+bindsym $mod+Ctrl+Shift+d exec --no-startup-id nemo Documents
+bindsym $mod+Shift+c exec --no-startup-id nemo Code
+bindsym $mod+Shift+v exec --no-startup-id nemo Videos
+bindsym $mod+Shift+p exec --no-startup-id nemo Pictures
+bindsym $mod+Shift+m exec --no-startup-id nemo Music
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -129,7 +129,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec --no-startup-id alacritty
 
 # kill focused window
 bindsym $mod+q kill
@@ -206,18 +206,18 @@ set $ws9 "9: "
 set $ws10 "10"
 
 # bind program to workspace and focus to them on startup:
-assign [class="Xfce4-terminal"] $ws1
+assign [class="Alacritty"] $ws1
 assign [class="Brave-browser"] $ws2
-assign [class="Thunar"] $ws3
+assign [class="nemo"] $ws3
 assign [class="Code"] $ws4
-assign [class="Transmission-gtk"] $ws5
+assign [class="qBittorrent"] $ws5
 
 # automatic set focus new window if it opens on another workspace then the current:
-for_window [class=Xfce4-terminal] focus
+for_window [class=Alacritty] focus
 for_window [class=Brave-browser] focus
-for_window [class=Thunar] focus
+for_window [class=nemo] focus
 for_window [class=Code] focus
-for_window [class=Transmission-gtk] focus
+for_window [class=qBittorrent] focus
 
 # picom
 exec_always --no-startup-id picom --config  ~/.config/picom/picom.conf
