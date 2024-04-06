@@ -1,0 +1,289 @@
+####################
+### BASIC CONFIG ###
+####################
+
+# system font
+font pango: Noto Sans Regular 10
+
+# set super as mod key
+set $mod Mod1
+
+# default i3 tiling mode:
+workspace_layout default
+
+# move focused workspace between monitors
+bindsym $mod+Ctrl+Up move workspace to output up
+bindsym $mod+Ctrl+Down move workspace to output down
+bindsym $mod+Ctrl+Left move workspace to output left
+bindsym $mod+Ctrl+Right move workspace to output right
+
+# use click+mod to drag floating windows
+floating_modifier $mod
+
+###############
+### STYLING ###
+###############
+
+# add window borders and remove title bars
+for_window [class="^.*"] border pixel 3
+
+# set inner/outer gaps
+gaps inner 6
+gaps outer 3
+
+# colors variables
+set $darkbluetrans	#08052be6
+set $darkblue		#08052b
+set $lightblue		#5294e2
+set $urgentred		#e53935
+set $white		#d3dae3
+set $black		#000000
+set $purple		#517372
+set $darkpurple		#3c4d4d
+set $darkgrey		#383c4a
+set $grey		#b0b5bd
+set $mediumgrey		#8b8b8b
+set $yellowbrown	#e1b700
+
+# define colors for windows
+#class												border				bground				text			indicator				child_border
+client.focused								$purple				$purple				$white		$purple					$purple
+client.unfocused							$purple				$darkpurple		$grey			$darkgrey				$darkgrey
+client.focused_inactive				$purple				$darkpurple		$grey			$darkpurple					$darkpurple
+client.urgent									$urgentred		$urgentred		$white		$yellowbrown		$yellowbrown
+
+# Start i3bar to display a workspace bar
+bar {
+	font pango: Noto Sans Regular 10
+	status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	position bottom
+	tray_output primary
+	tray_padding 4
+
+colors {
+	separator     $purple
+	background    $darkgrey
+	statusline    $white
+# 										border				bg						txt						indicator
+	focused_workspace		$mediumgrey		$grey					$darkgrey			$purple
+	active_workspace		$lightblue  	$mediumgrey		$darkgrey			$purple
+	inactive_workspace	$darkgrey   	$darkgrey			$grey					$purple
+	urgent_workspace		$urgentred		$urgentred		$white				$purple
+	}
+}
+
+#################
+### SHORTCUTS ###
+#################
+
+# apps
+bindsym $mod+w exec --no-startup-id /usr/bin/brave
+bindsym $mod+c exec --no-startup-id /usr/bin/code
+bindsym $mod+i exec --no-startup-id /usr/bin/idea
+bindsym $mod+shift+t exec --no-startup-id /usr/bin/qbittorrent
+bindsym Print exec --no-startup-id scrot ~/Pictures/%d-%m-%Y-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
+
+# folders
+bindsym $mod+Shift+d exec --no-startup-id thunar Downloads
+bindsym $mod+Ctrl+Shift+d exec --no-startup-id thunar Documents
+bindsym $mod+Shift+c exec --no-startup-id thunar Code
+bindsym $mod+Shift+v exec --no-startup-id thunar Videos
+bindsym $mod+Shift+p exec --no-startup-id thunar Pictures
+bindsym $mod+Shift+m exec --no-startup-id thunar Music
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# resize window (you can also use the mouse for that):
+mode "resize" {
+	bindsym Left resize shrink width 10 px or 10 ppt
+	bindsym Down resize grow height 10 px or 10 ppt
+	bindsym Up resize shrink height 10 px or 10 ppt
+	bindsym Right resize grow width 10 px or 10 ppt
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+# resize windows
+bindsym $mod+r mode "resize"
+
+# start a terminal
+bindsym $mod+Return exec xfce4-terminal
+
+# kill focused window
+bindsym $mod+q kill
+
+# lock the system
+bindsym $mod+l exec ~/.config/i3/scripts/blur-lock
+
+# restart i3 inplace
+bindsym $mod+Shift+r restart
+
+# backlight control
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +20
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -20
+bindsym Shift+XF86MonBrightnessUp exec --no-startup-id xbacklight +5
+bindsym Shift+XF86MonBrightnessDown exec --no-startup-id xbacklight -5
+
+# use shift+audio keys to change brightness
+bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id xbacklight +20
+bindsym Shift+XF86AudioLowerVolume exec --no-startup-id xbacklight -20
+
+# change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+Shift+s layout stacking
+bindsym $mod+Shift+g layout tabbed
+bindsym $mod+Shift+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+
+# mute
+bindsym XF86AudioMute exec amixer sset Master toggle && killall -USR1 i3blocks
+
+# audio control
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+##########################################
+# configuration for workspace behaviour: #
+##########################################
+
+# Workspace names and icons
+set $ws1 "1: "
+set $ws2 "2: "
+set $ws3 "3: "
+set $ws4 "4: "
+set $ws5 "5: "
+set $ws6 "6: "
+set $ws7 "7: "
+set $ws8 "8: "
+set $ws9 "9: "
+set $ws10 "10"
+
+# bind program to workspace and focus to them on startup:
+assign [class="Xfce4-terminal"] $ws1
+assign [class="Brave-browser"] $ws2
+assign [class="Thunar"] $ws3
+assign [class="Code"] $ws4
+assign [class="Transmission-gtk"] $ws5
+
+# automatic set focus new window if it opens on another workspace then the current:
+for_window [class=Xfce4-terminal] focus
+for_window [class=Brave-browser] focus
+for_window [class=Thunar] focus
+for_window [class=Code] focus
+for_window [class=Transmission-gtk] focus
+
+# picom
+exec_always --no-startup-id picom --config  ~/.config/picom/picom.conf
+
+#################
+### AUTOSTART ###
+#################
+
+# flameshot
+exec --no-startup-id /usr/bin/flameshot
+
+# get auth work with polkit-gnome
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# dex execute .desktop files + apps using /etc/xdg/autostart.
+exec --no-startup-id dex --autostart --environment i3
+
+# start redshift
+exec --no-startup-id redshift -P -O 3000
+
+# set wallpaper
+exec --no-startup-id sleep 3 && feh --bg-fill --no-xinerama ~/Pictures/backgrounds/pexels-lucas-pezeta-2270180.jpg
+
+######################
+### FLOATING RULES ###
+######################
+
+# set floating (nontiling) for apps needing it
+for_window [class="Yad" instance="yad"] floating enable
+for_window [class="Galculator" instance="galculator"] floating enable
+for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
+
+# Zoom floating config
+for_window [class="zoom"] floating enable
+
+#XDM floating config
+for_window [class="xdman-Main"] floating enable
+for_window [class="xdman-Main" title="XDM 2020"] floating disabled
+
+# set floating (nontiling) for special apps
+for_window [class="Xsane" instance="xsane"] floating enable
+for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
+for_window [class="qt5ct" instance="qt5ct"] floating enable
+for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
+for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
+for_window [class="Pamac-manager"] floating enable
+for_window [window_role="About"] floating enable
+
+# set border of floating window
+for_window [class="urxvt"] border pixel 1
+
+##########################
+### ROFI CONFIGURATION ###
+##########################
+
+bindsym $mod+d exec rofi -modi drun -show drun \
+		-config ~/.config/rofi/rofidmenu.rasi
+
+bindsym $mod+t exec rofi -show window \
+		-config ~/.config/rofi/rofidmenu.rasi
+
+bindsym $mod+Escape exec rofi -show power-menu -modi power-menu:rofi-power-menu \
+		-config ~/.config/rofi/rofidmenu.rasi
+
+#################################
+### Monitor resolution config ###
+#################################
+
+exec_always --no-startup-id ~/.screenlayout/monitor.sh
