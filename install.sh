@@ -21,7 +21,8 @@ gnome-screenshot \
 rhythmbox \
 sticky \
 system-config-printer \
-transmission-gtk
+transmission-gtk \
+warpinator
 
 
 rm -rf /home/vini/.cache/mozilla/firefox
