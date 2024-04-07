@@ -64,8 +64,8 @@ power-profiles-daemon \
 pavucontrol \
 nodejs \
 npm \
-aria2 \
-mpv
+mpv \
+ffmpeg
 
 sudo npm install -g vtop
 
