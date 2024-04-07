@@ -61,7 +61,11 @@ rofi \
 fonts-firacode \
 kdeconnect \
 power-profiles-daemon \
-pavucontrol
+pavucontrol \
+nodejs \
+npm
+
+sudo npm install -g vtop
 
 echo_done
 
