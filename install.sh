@@ -58,7 +58,8 @@ feh \
 numlockx \
 rofi \
 fonts-firacode \
-kdeconnect
+kdeconnect \
+power-profiles-daemon
 
 echo_done
 
