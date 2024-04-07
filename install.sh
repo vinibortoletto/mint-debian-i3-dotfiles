@@ -59,7 +59,8 @@ numlockx \
 rofi \
 fonts-firacode \
 kdeconnect \
-power-profiles-daemon
+power-profiles-daemon \
+pavucontrol
 
 echo_done
 

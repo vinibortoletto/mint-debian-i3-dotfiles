@@ -282,7 +282,7 @@ bindsym $mod+t exec rofi -show window \
 bindsym $mod+Escape exec rofi -show power-menu -modi power-menu:~/.config/rofi/rofi-power-menu \
 -config ~/.config/rofi/rofidmenu.rasi
 
-bindsym $mod+p exec rofi -show power-profile
+# bindsym $mod+p exec rofi -show power-profile
 
 #################################
 ### Monitor resolution config ###

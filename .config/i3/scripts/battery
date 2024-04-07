@@ -1,0 +1,40 @@
+#!/bin/bash
+
+BATTERY_INFO=$(acpi -b | grep "Battery 0")
+BATTERY_STATE=$(echo "${BATTERY_INFO}" | grep -wo "Full\|Charging\|Discharging")
+BATTERY_POWER=$(echo "${BATTERY_INFO}" | grep -o '[0-9]\+%' | tr -d '%')
+URGENT_VALUE=10
+
+
+
+if [[ "${BATTERY_STATE}" = "Charging" ]]; then
+    if [[ "${BATTERY_POWER}" -gt 10 && "${BATTERY_POWER}" -lt 40 ]]; then
+        echo "󰢜 ${BATTERY_POWER}%"
+
+    elif [[ "${BATTERY_POWER}" -gt 40 && "${BATTERY_POWER}" -lt 60 ]]; then
+        echo "󰢝 ${BATTERY_POWER}%"
+
+    elif [[ "${BATTERY_POWER}" -gt 60 && "${BATTERY_POWER}" -lt 90 ]]; then
+        echo "󰂊 ${BATTERY_POWER}%"
+
+    elif [[ "${BATTERY_POWER}" ]]; then
+        echo "󰂅 ${BATTERY_POWER}%"
+    fi
+else
+    if [[ "${BATTERY_POWER}" -gt 10 && "${BATTERY_POWER}" -lt 40 ]]; then
+        echo "󰁺 ${BATTERY_POWER}%"
+
+    elif [[ "${BATTERY_POWER}" -gt 40 && "${BATTERY_POWER}" -lt 60 ]]; then
+        echo "󰁾 ${BATTERY_POWER}%"
+
+    elif [[ "${BATTERY_POWER}" -gt 60 && "${BATTERY_POWER}" -lt 90 ]]; then
+        echo "󰂀 ${BATTERY_POWER}%"
+
+    elif [[ "${BATTERY_POWER}" ]]; then
+        echo "󰁹 ${BATTERY_POWER}%"
+    fi
+fi
+
+# if [[ "${BATTERY_POWER}" -le "${URGENT_VALUE}" ]]; then
+#  exit 33
+# fi
