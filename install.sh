@@ -174,3 +174,15 @@ cp /usr/share/themes/Mint-Y-Dark-Teal ~/.themes
 sudo flatpak override --env=GTK_THEME=Mint-Y-Dark-Teal
 
 echo_done
+
+##########################
+### Fix Screen Tearing ###
+##########################
+
+echo_doing 'Black list Noveau Driver'
+
+sudo cp blacklist-nouveau.conf /etc/modprobe.d/
+sudo update-initramfs -u
+sudo cp 20-intel.conf /etc/X11/xorg.conf.d/
+
+echo_done
