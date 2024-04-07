@@ -22,8 +22,8 @@ rhythmbox \
 sticky \
 system-config-printer \
 transmission-gtk \
-warpinator
-
+warpinator \
+celluloid
 
 rm -rf /home/vini/.cache/mozilla/firefox
 rm -rf /home/vini/.mozilla/firefox
@@ -63,7 +63,9 @@ kdeconnect \
 power-profiles-daemon \
 pavucontrol \
 nodejs \
-npm
+npm \
+aria2 \
+mpv
 
 sudo npm install -g vtop
 
