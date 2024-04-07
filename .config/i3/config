@@ -3,7 +3,7 @@
 ####################
 
 # system font
-font pango: Noto Sans Regular 10
+font pango: Hack Nerd Font Regular 10
 
 # set super as mod key
 set $mod Mod1
@@ -54,7 +54,7 @@ client.urgent									$urgentred		$urgentred		$white		$yellowbrown		$yellowbrown
 
 # Start i3bar to display a workspace bar
 bar {
-	font pango: Noto Sans Regular 10
+	font pango: Hack Nerd Font Regular 11
 	status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	position bottom
 	tray_output primary
@@ -274,13 +274,15 @@ for_window [class="urxvt"] border pixel 1
 ##########################
 
 bindsym $mod+d exec rofi -modi drun -show drun \
-		-config ~/.config/rofi/rofidmenu.rasi
+-config ~/.config/rofi/rofidmenu.rasi
 
 bindsym $mod+t exec rofi -show window \
-		-config ~/.config/rofi/rofidmenu.rasi
+-config ~/.config/rofi/rofidmenu.rasi
 
-bindsym $mod+Escape exec rofi -show power-menu -modi power-menu:rofi-power-menu \
-		-config ~/.config/rofi/rofidmenu.rasi
+bindsym $mod+Escape exec rofi -show power-menu -modi power-menu:~/.config/rofi/rofi-power-menu \
+-config ~/.config/rofi/rofidmenu.rasi
+
+bindsym $mod+p exec rofi -show power-profile
 
 #################################
 ### Monitor resolution config ###
