@@ -26,7 +26,7 @@ warpinator \
 celluloid
 
 rm -rf /home/vini/.cache/mozilla/firefox
-rm -rf /home/vini/.mozilla/firefox
+rm -rf /home/vini/.mozilla/
 
 echo_done
 
