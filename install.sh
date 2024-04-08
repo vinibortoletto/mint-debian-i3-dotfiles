@@ -65,7 +65,9 @@ pavucontrol \
 nodejs \
 npm \
 mpv \
-ffmpeg
+ffmpeg \
+xbacklight \
+brightnessctl
 
 sudo npm install -g vtop
 
