@@ -68,7 +68,8 @@ mpv \
 ffmpeg \
 xbacklight \
 brightnessctl \
-jq
+jq \
+picom
 
 sudo npm install -g vtop
 
