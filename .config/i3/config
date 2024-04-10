@@ -207,6 +207,7 @@ assign [class="Brave-browser"] $ws2
 assign [class="nemo"] $ws3
 assign [class="Code"] $ws4
 assign [class="qBittorrent"] $ws5
+assign [class="Xdm-app"] $ws5
 
 # automatic set focus new window if it opens on another workspace then the current:
 for_window [class=Alacritty] focus
@@ -214,6 +215,7 @@ for_window [class=Brave-browser] focus
 for_window [class=nemo] focus
 for_window [class=Code] focus
 for_window [class=qBittorrent] focus
+for_window [class="Xdm-app"] focus
 
 # picom
 exec_always --no-startup-id picom --config  ~/.config/picom/picom.conf
@@ -249,9 +251,9 @@ for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
 # Zoom floating config
 for_window [class="zoom"] floating enable
 
-#XDM floating config
-for_window [class="xdman-Main"] floating enable
-for_window [class="xdman-Main" title="XDM 2020"] floating disabled
+# XDM floating config
+# for_window [class="xdman-Main"] floating enable
+# for_window [class="xdman-Main" title="XDM 2020"] floating disabled
 
 # set floating (nontiling) for special apps
 for_window [class="Xsane" instance="xsane"] floating enable
@@ -270,15 +272,15 @@ for_window [class="urxvt"] border pixel 1
 ##########################
 
 bindsym $mod+d exec rofi -modi drun -show drun \
--config ~/.config/rofi/rofidmenu.rasi
+-config ~/.config/rofi/rofidmenu-apps.rasi
 
 bindsym $mod+t exec rofi -show window \
 -config ~/.config/rofi/rofidmenu.rasi
 
 bindsym $mod+Escape exec rofi -show power-menu -modi power-menu:~/.config/rofi/rofi-power-menu \
--config ~/.config/rofi/rofidmenu.rasi
+-config ~/.config/rofi/rofidmenu-power-menu.rasi
 
-# bindsym $mod+p exec rofi -show power-profile
+bindsym $mod+p exec sh ~/.config/rofi/power-profile
 
 #################################
 ### Monitor resolution config ###
