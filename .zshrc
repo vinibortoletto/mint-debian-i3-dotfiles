@@ -1,15 +1,23 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 #################
 ### Variables ###
 #################
 
-export BROWSER=/usr/bin/brave
+export BROWSER=/var/lib/flatpak/exports/bin/com.brave.Browser
 export ZSH="$HOME/.oh-my-zsh"
 
 ##################
 ### Zsh Config ###
 ##################
 
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
 git
@@ -54,6 +62,12 @@ function idea() {
     disown
 }
 
+function code() {
+   nohup flatpak run --file-forwarding com.visualstudio.code "$@" > /dev/null 2>&1 &
+   disown
+}
+
+
 function dc() {
     if [[ $1 == "up" ]]; then
         docker-compose up -d
@@ -67,3 +81,31 @@ function dc() {
         echo "Invalid command. Usage: dc up"
     fi
 }
+
+function up() {
+   sudo nala update
+   sudo nala upgrade -y
+   sudo nala autopurge -y
+   sudo nala clean
+
+   flatpak update -y
+}
+
+#############
+### Alias ###
+#############
+
+alias c='cp'
+alias cf='cp -r'
+alias a='aria2c'
+alias ni='sudo nala install -y'
+alias ns='nala search'
+alias nr='sudo nala purge -y'
+alias nu='sudo nala update && sudo nala upgrade -y'
+alias nc='sudo nala autopurge -y && sudo nala clean'
+alias fi='flatpak install -y'
+alias fr='flatpak remove -y'
+alias fu='flatpak update -y'
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
