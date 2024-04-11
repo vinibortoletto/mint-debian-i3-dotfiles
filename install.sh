@@ -203,3 +203,12 @@ sudo update-initramfs -u
 sudo cp 20-intel.conf /etc/X11/xorg.conf.d/
 
 echo_done
+
+### Nordic theme ###
+git clone https://github.com/EliverLara/Nordic.git
+mkdir ~/.theme
+mv Nordic ~/.themes
+gsettings set org.gnome.desktop.interface gtk-theme "Nordic"
+gsettings set org.gnome.desktop.wm.preferences theme "Nordic"
+
+git clone https://github.com/alvatip/Nordzy-icon
