@@ -212,3 +212,5 @@ gsettings set org.gnome.desktop.interface gtk-theme "Nordic"
 gsettings set org.gnome.desktop.wm.preferences theme "Nordic"
 
 git clone https://github.com/alvatip/Nordzy-icon
+cd Nordzy-icon/
+./install.sh -t turquoise
