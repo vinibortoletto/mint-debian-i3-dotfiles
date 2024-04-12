@@ -69,7 +69,9 @@ sudo nala install -y \
 	xbacklight \
 	brightnessctl \
 	jq \
-	picom 
+	picom \
+	maven \
+	lxpolkit
 
 sudo npm install -g vtop
 
@@ -79,6 +81,7 @@ sudo npm install -g vtop
 
 wget https://desktop.docker.com/linux/main/amd64/docker-desktop-4.12.0-amd64.deb
 sudo dpkg -i docker-desktop-4.29.0-amd64.deb
+apt --fix-broken install
 
 echo_done
 
