@@ -8,22 +8,22 @@ source ./functions.sh
 echo_doing 'Removing Firefox'
 
 sudo nala remove -y \
-  firefox \
-  libreoffice-core \
-  xed \
-  drawing \
-  simple-scan \
-  pix \
-  hypnotix \
-  hexchat \
-  thunderbird \
-  gnome-screenshot \
-  rhythmbox \
-  sticky \
-  system-config-printer \
-  transmission-gtk \
-  warpinator \
-  celluloid
+	firefox \
+	libreoffice-core \
+	xed \
+	drawing \
+	simple-scan \
+	pix \
+	hypnotix \
+	hexchat \
+	thunderbird \
+	gnome-screenshot \
+	rhythmbox \
+	sticky \
+	system-config-printer \
+	transmission-gtk \
+	warpinator \
+	celluloid
 
 rm -rf /home/vini/.cache/mozilla/firefox
 rm -rf /home/vini/.mozilla/
@@ -47,31 +47,38 @@ echo_done
 echo_doing 'Installing deb packages'
 
 sudo nala install -y \
-  qbittorrent \
-  steam-installer \
-  lxappearance \
-  arandr \
-  dunst \
-  i3-wm \
-  i3blocks \
-  alacritty \
-  feh \
-  numlockx \
-  rofi \
-  fonts-firacode \
-  kdeconnect \
-  power-profiles-daemon \
-  pavucontrol \
-  nodejs \
-  npm \
-  mpv \
-  ffmpeg \
-  xbacklight \
-  brightnessctl \
-  jq \
-  picom
+	qbittorrent \
+	steam-installer \
+	lxappearance \
+	arandr \
+	dunst \
+	i3-wm \
+	i3blocks \
+	alacritty \
+	feh \
+	numlockx \
+	rofi \
+	fonts-firacode \
+	kdeconnect \
+	power-profiles-daemon \
+	pavucontrol \
+	nodejs \
+	npm \
+	mpv \
+	ffmpeg \
+	xbacklight \
+	brightnessctl \
+	jq \
+	picom 
 
 sudo npm install -g vtop
+
+#################################
+### Installing Docker Desktop ###
+################################
+
+wget https://desktop.docker.com/linux/main/amd64/docker-desktop-4.12.0-amd64.deb
+sudo dpkg -i docker-desktop-4.29.0-amd64.deb
 
 echo_done
 
@@ -82,14 +89,14 @@ echo_done
 echo_doing 'Install flatpak apps'
 
 flatpak install -y \
-  com.visualstudio.code \
-  com.jetbrains.IntelliJ-IDEA-Community \
-  com.stremio.Stremio \
-  com.brave.Browser \
-  com.discordapp.Discord \
-  io.beekeeperstudio.Studio \
-  com.usebruno.Bruno \
-  org.kryogenix.Pick
+	com.visualstudio.code \
+	com.jetbrains.IntelliJ-IDEA-Community \
+	com.stremio.Stremio \
+	com.brave.Browser \
+	com.discordapp.Discord \
+	io.beekeeperstudio.Studio \
+	com.usebruno.Bruno \
+	org.kryogenix.Pick
 
 echo_done
 
@@ -114,9 +121,9 @@ echo_done
 ##############################
 
 wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf \
-  https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf \
-  https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf \
-  https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
+	https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf \
+	https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf \
+	https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
 
 mv *.ttf ~/.local/share/fonts
 
@@ -172,11 +179,11 @@ git config --global user.email "ovinibortoletto@gmail.com"
 git config --global user.name "Vinicius Bortoletto"
 
 sudo mkdir -p -m 755 /etc/apt/keyrings && wget -qO- https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg >/dev/null &&
-  sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg &&
-  echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list >/dev/null &&
-  sudo apt update &&
-  sudo apt install gh -y &&
-  gh auth login
+	sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg &&
+	echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list >/dev/null &&
+	sudo apt update &&
+	sudo apt install gh -y &&
+	gh auth login
 
 echo_done
 

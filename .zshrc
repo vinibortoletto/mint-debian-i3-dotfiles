@@ -53,12 +53,12 @@ function update() {
 }
 
 function phps() {
-    nohup flatpak run --file-forwarding com.jetbrains.PhpStorm "$@" &
+    nohup flatpak run --file-forwarding com.jetbrains.PhpStorm "$@" > /dev/null 2>&1 &
     disown
 }
 
 function idea() {
-    nohup flatpak run --file-forwarding com.jetbrains.IntelliJ-IDEA-Community "$@" &
+    nohup flatpak run --file-forwarding com.jetbrains.IntelliJ-IDEA-Community "$@" > /dev/null 2>&1 &
     disown
 }
 
@@ -97,6 +97,8 @@ function up() {
 
 alias c='cp'
 alias cf='cp -r'
+alias r='rm'
+alias rf='rm -rf'
 alias a='aria2c'
 alias ni='sudo nala install -y'
 alias ns='nala search'
